@@ -20,21 +20,21 @@ pub fn image_options() -> ImageOptions {
 	let lines = defaults_get("linesPerPage")
 		.and_then(|v| v.as_float())
 		.unwrap_or(60.0);
-    let text_color = defaults_get("textColor")
-        .and_then(|v| v.as_int())
-        .map(|v| v.try_into().unwrap_or(0xFFFFFF))
-        .unwrap_or(0xFFFFFF);
-    let background_color = defaults_get("bgColor")
-        .and_then(|v| v.as_int())
-        .map(|v| v.try_into().unwrap_or(0x000000))
-        .unwrap_or(0x000000);
+	let text_color = defaults_get("textColor")
+		.and_then(|v| v.as_int())
+		.map(|v| v.try_into().unwrap_or(0xFFFFFF))
+		.unwrap_or(0xFFFFFF);
+	let background_color = defaults_get("bgColor")
+		.and_then(|v| v.as_int())
+		.map(|v| v.try_into().unwrap_or(0x000000))
+		.unwrap_or(0x000000);
 	ImageOptions {
 		padding: Padding(horizontal_padding as f32, vertical_padding as f32),
 		width: page_width as f32,
 		constant_width,
 		lines: lines as usize,
-        text_color,
-        background_color,
+		text_color,
+		background_color,
 	}
 }
 
