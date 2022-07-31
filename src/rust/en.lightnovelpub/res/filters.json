@@ -1,0 +1,287 @@
+[
+	{
+		"type": "title"
+	},
+	{
+		"type": "group",
+		"name": "Genre / Language",
+		"filters": [
+			{
+				"type": "check",
+				"name": "Chinese",
+				"id": "&genretypes=1"
+			},
+			{
+				"type": "check",
+				"name": "Korean",
+				"id": "&genretypes=2"
+			},
+			{
+				"type": "check",
+				"name": "Japanese",
+				"id": "&genretypes=3"
+			}
+		]
+	},
+	{
+		"type": "select",
+		"name": "Category Condition",
+		"options": [
+			"AND",
+			"OR"
+		]
+	},
+	{
+		"type": "group",
+		"name": "Categories",
+		"filters": [
+			{
+				"type": "genre",
+				"name": "Action",
+				"id": "1"
+			},
+			{
+				"type": "genre",
+				"name": "Adult",
+				"id": "48"
+			},
+			{
+				"type": "genre",
+				"name": "Adventure",
+				"id": "2"
+			},
+			{
+				"type": "genre",
+				"name": "Comedy",
+				"id": "12"
+			},
+			{
+				"type": "genre",
+				"name": "Contemporary Romance",
+				"id": "59"
+			},
+			{
+				"type": "genre",
+				"name": "Drama",
+				"id": "3"
+			},
+			{
+				"type": "genre",
+				"name": "Eastern Fantasy",
+				"id": "58"
+			},
+			{
+				"type": "genre",
+				"name": "Ecchi",
+				"id": "11"
+			},
+			{
+				"type": "genre",
+				"name": "Fantasy",
+				"id": "4"
+			},
+			{
+				"type": "genre",
+				"name": "Fantasy Romance",
+				"id": "60"
+			},
+			{
+				"type": "genre",
+				"name": "Gender Bender",
+				"id": "52"
+			},
+			{
+				"type": "genre",
+				"name": "Harem",
+				"id": "5"
+			},
+			{
+				"type": "genre",
+				"name": "Historical",
+				"id": "46"
+			},
+			{
+				"type": "genre",
+				"name": "Horror",
+				"id": "44"
+			},
+			{
+				"type": "genre",
+				"name": "Josei",
+				"id": "23"
+			},
+			{
+				"type": "genre",
+				"name": "Lolicon",
+				"id": "51"
+			},
+			{
+				"type": "genre",
+				"name": "Magical Realism",
+				"id": "57"
+			},
+			{
+				"type": "genre",
+				"name": "Martial Arts",
+				"id": "6"
+			},
+			{
+				"type": "genre",
+				"name": "Mature",
+				"id": "7"
+			},
+			{
+				"type": "genre",
+				"name": "Mecha",
+				"id": "45"
+			},
+			{
+				"type": "genre",
+				"name": "Mystery",
+				"id": "14"
+			},
+			{
+				"type": "genre",
+				"name": "Psychological",
+				"id": "18"
+			},
+			{
+				"type": "genre",
+				"name": "Romance",
+				"id": "8"
+			},
+			{
+				"type": "genre",
+				"name": "School Life",
+				"id": "21"
+			},
+			{
+				"type": "genre",
+				"name": "Sci-fi",
+				"id": "19"
+			},
+			{
+				"type": "genre",
+				"name": "Seinen",
+				"id": "49"
+			},
+			{
+				"type": "genre",
+				"name": "Shoujo",
+				"id": "47"
+			},
+			{
+				"type": "genre",
+				"name": "Shoujo Ai",
+				"id": "61"
+			},
+			{
+				"type": "genre",
+				"name": "Shounen",
+				"id": "43"
+			},
+			{
+				"type": "genre",
+				"name": "Shounen Ai",
+				"id": "53"
+			},
+			{
+				"type": "genre",
+				"name": "Slice of Life",
+				"id": "13"
+			},
+			{
+				"type": "genre",
+				"name": "Smut",
+				"id": "56"
+			},
+			{
+				"type": "genre",
+				"name": "Sports",
+				"id": "50"
+			},
+			{
+				"type": "genre",
+				"name": "Supernatural",
+				"id": "16"
+			},
+			{
+				"type": "genre",
+				"name": "Tragedy",
+				"id": "9"
+			},
+			{
+				"type": "genre",
+				"name": "Video Games",
+				"id": "55"
+			},
+			{
+				"type": "genre",
+				"name": "Wuxia",
+				"id": "42"
+			},
+			{
+				"type": "genre",
+				"name": "Xianxia",
+				"id": "20"
+			},
+			{
+				"type": "genre",
+				"name": "Xuanhuan",
+				"id": "10"
+			},
+			{
+				"type": "genre",
+				"name": "Yaoi",
+				"id": "54"
+			},
+			{
+				"type": "genre",
+				"name": "Yuri",
+				"id": "62"
+			}
+		]
+	},
+	{
+		"type": "select",
+		"name": "Rating Condition",
+		"options": [
+			"Minimum",
+			"Maximum"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Rating",
+		"options": [
+			"none",
+			"1",
+			"2",
+			"3",
+			"4",
+			"5"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Translation Status",
+		"options": [
+			"All",
+			"Completed",
+			"Ongoing"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Sort by",
+		"options": [
+			"Rank (Top)",
+			"Rating Score (Top)",
+			"Bookmark Count (Most)",
+			"Review Count (Most)",
+			"Title (A > Z)",
+			"Last Updated (Newest)"
+		],
+		"default": 5
+	}
+]

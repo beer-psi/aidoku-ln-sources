@@ -1,0 +1,14 @@
+{
+	"info": {
+		"id": "en.lightnovelpub",
+		"lang": "en",
+		"name": "LightNovelPub",
+		"version": 1,
+		"url": "https://lightnovelpub.com",
+		"nsfw": 1
+	},
+	"listings": [
+		{ "name": "Popular" },
+		{ "name": "Recently Updated" }
+	]
+}
