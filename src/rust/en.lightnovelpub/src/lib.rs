@@ -373,7 +373,7 @@ fn get_page_list(_: String, id: String) -> Result<Vec<Page>> {
 	)
 	.split
 	.len() as f32)
-		/ 60.0 + 1.0) as usize;
+		/ (options.lines as f32) + 1.0) as usize;
 	let mut pages = Vec::with_capacity(page_count);
 	for i in 0..page_count {
 		let data = libaidokuln::write_text(&text_content, i + 1, font, options);

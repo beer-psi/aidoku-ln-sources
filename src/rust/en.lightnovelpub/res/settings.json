@@ -82,7 +82,7 @@
 				"type": "stepper",
 				"key": "linesPerPage",
 				"title": "Lines Per Page",
-				"default": 60,
+				"default": 35,
 				"minimumValue": 1,
 				"maximumValue": 100
 			},
