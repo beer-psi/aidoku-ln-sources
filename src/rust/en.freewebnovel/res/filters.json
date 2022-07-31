@@ -1,0 +1,59 @@
+[
+	{
+		"type": "title"
+	},
+	{
+		"type": "select",
+		"name": "Genres",
+		"options": [
+			"All",
+			"Action",
+			"Adult",
+			"Adventure",
+			"Comedy",
+			"Drama",
+			"Ecchi",
+			"Fantasy",
+			"Gender Bender",
+			"Harem",
+			"Historical",
+			"Horror",
+			"Josei",
+			"Game",
+			"Martial Arts",
+			"Mature",
+			"Mecha",
+			"Mystery",
+			"Psychological",
+			"Romance",
+			"School Life",
+			"Sci-fi",
+			"Seinen",
+			"Shoujo",
+			"Shounen Ai",
+			"Shounen",
+			"Slice of Life",
+			"Smut",
+			"Sports",
+			"Supernatural",
+			"Tragedy",
+			"Wuxia",
+			"Xianxia",
+			"Xuanhuan",
+			"Yaoi",
+			"Eastern",
+			"Reincarnation"
+		]
+	},
+	{
+		"type": "select",
+		"name": "Sort",
+		"options": [
+			"All",
+			"Chinese Novels",
+			"Korean Novels",
+			"Japanese Novels",
+			"English Novels"
+		]
+	}
+]
