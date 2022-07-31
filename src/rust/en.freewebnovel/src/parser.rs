@@ -3,7 +3,7 @@ extern crate alloc;
 use aidoku::{
 	error::Result,
 	helpers::node::NodeHelpers,
-	prelude::{format, println},
+	prelude::format,
 	std::{defaults::defaults_get, net::HttpMethod, net::Request, String, Vec},
 	Chapter, DeepLink, Filter, FilterType, Manga, MangaContentRating, MangaPageResult, MangaStatus,
 	MangaViewer, Page,
@@ -93,7 +93,6 @@ pub fn parse_manga_list(
 		)
 	} else {
 		let url = get_filter_url(base_url.clone(), tag, sort, page);
-		println!("{}", url);
 		parse_manga_listing(base_url, url, String::new())
 	}
 }
@@ -172,12 +171,7 @@ pub fn parse_manga_details(id: String) -> Result<Manga> {
 
 pub fn parse_chapter_list(base_url: String, id: String) -> Result<Vec<Chapter>> {
 	let mut chapters: Vec<Chapter> = Vec::new();
-	println!("{}", id);
 	let html1 = Request::new(&id, HttpMethod::Get).html()?;
-	/*let next_page = get_full_url(
-		base_url.clone(),
-		html1.select(".page a:eq(2)").attr("href").read(),
-	);*/
 	let last_page = extract_i32_from_string(html1.select(".page a:eq(4)").attr("href").read());
 	let mut page = 1;
 	while page != last_page {
@@ -188,7 +182,6 @@ pub fn parse_chapter_list(base_url: String, id: String) -> Result<Vec<Chapter>> 
 			let title = chapter_node.text().read();
 			let chapter_id = get_full_url(base_url.clone(), chapter_node.attr("href").read());
 			let chapter_number = get_chapter_number(title.clone());
-			println!("{}", chapter_number);
 			chapters.push(Chapter {
 				id: chapter_id.clone(),
 				title,
@@ -209,7 +202,6 @@ pub fn parse_page_list(id: String) -> Result<Vec<Page>> {
 	let html = Request::new(&id, HttpMethod::Get).html()?;
 	let raw_text = html.select(".txt").text_with_newlines();
 	let novel_text = deunicode(&html_escape::decode_html_entities(&raw_text));
-	println!("{}", novel_text);
 	let font = {
 		let font_name = defaults_get("fontName")
 			.and_then(|v| v.as_string())
