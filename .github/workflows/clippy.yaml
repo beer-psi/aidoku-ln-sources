@@ -38,6 +38,9 @@ jobs:
           components: clippy
           target: wasm32-unknown-unknown
       -
+        name: Other dependencies
+        run: sudo apt-get install -y moreutils
+      -
         name: Lint sources
         run: |
           readarray -t TEMP <<< "$(jq -r '.[]' <<<'${{ steps.files.outputs.added_modified }}')"
@@ -45,10 +48,9 @@ jobs:
             if [[ "$i" == *"src/rust"* ]]; then
               (
                 cd "$i"
-                cargo clippy --message-format=json \
-                  | jq -s -f $GITHUB_WORRKSPACE/.github/workflows/annotations.jq \
-                  | jq --arg v "${i%/}" 'map(.path = $v + "/" + .path)' \
-                  > annotations.json
+                cargo clippy --message-format=json > annotations.json
+                jq -s -f $GITHUB_WORRKSPACE/.github/workflows/annotations.jq | sponge annotations.json
+                jq --arg v "${i%/}" 'map(.path = $v + "/" + .path)' | sponge annotations.json
               )
             fi
           done < <(printf "%s\n" "${TEMP[@]}" | cut -d'/' -f-3 | sort -u | grep 'src' | tr '\n' '\0')
