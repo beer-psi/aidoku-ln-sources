@@ -1,5 +1,5 @@
 use aidoku::{
-	prelude::{format, println},
+	prelude::format,
 	std::String,
 	std::Vec,
 	MangaStatus,
@@ -27,12 +27,15 @@ pub fn get_full_url(base_url: String, id: String) -> String {
 }
 
 pub fn get_chapter_number(id: String) -> f32 {
-	let values: Vec<&str> = id.split_whitespace().collect();
-	println!("{:?}", values);
-	values[1]
-		.replace(&['(', ')', ',', '\"', '.', ';', ':', '\''][..], "")
-		.parse::<f32>()
-		.unwrap()
+	id.chars()
+		.filter(|a| (*a >= '0' && *a <= '9') || *a == ' ' || *a == '.')
+		.collect::<String>()
+		.split(' ')
+		.collect::<Vec<&str>>()
+		.into_iter()
+		.map(|a| a.parse::<f32>().unwrap_or(0.0))
+		.find(|a| *a > 0.0)
+		.unwrap_or(0.0)
 }
 
 pub fn extract_i32_from_string(text: String) -> i32 {

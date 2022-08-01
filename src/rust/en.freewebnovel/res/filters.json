@@ -47,7 +47,7 @@
 	},
 	{
 		"type": "select",
-		"name": "Sort",
+		"name": "Original Language",
 		"options": [
 			"All",
 			"Chinese Novels",
