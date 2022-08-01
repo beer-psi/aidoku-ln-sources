@@ -165,7 +165,7 @@ fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
 	if page == 1 {
 		ret.has_more = true;
 	}
-	return Ok(ret)
+	Ok(ret)
 }
 
 #[get_manga_listing]
