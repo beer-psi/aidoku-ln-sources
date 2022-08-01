@@ -57,7 +57,7 @@ jobs:
           done < <(printf "%s\n" "${TEMP[@]}" | cut -d'/' -f-3 | sort -u | grep 'src' | tr '\n' '\0')
 
           shopt -s globstar
-          jq '[inputs] | add' ./**/annotations.json
+          jq 'add' ./**/annotations.json
       -
         name: Send annotations
         uses: yuzutech/annotations-action@v0.4.0
