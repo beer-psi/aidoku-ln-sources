@@ -35,6 +35,7 @@ jobs:
         with:
           toolchain: nightly
           override: true
+          components: clippy
           target: wasm32-unknown-unknown
       -
         name: Lint sources
