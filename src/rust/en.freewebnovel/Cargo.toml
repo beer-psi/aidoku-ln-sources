@@ -1,0 +1,25 @@
+[package]
+name = "freewebnovel"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = "s"
+strip = true
+lto = true
+
+[dependencies]
+aidoku = { git = "https://github.com/beerpiss/aidoku-rs", branch = "qol-improvements", features = ["helpers"] }
+base64 = { version = "0.13.0", default-features = false }
+libaidokuln = { git = "https://github.com/beerpiss/libaidokuln" }
+deunicode = { git = "https://github.com/kornelski/deunicode/" }
+html-escape = { version = "0.2.11", default-features = false }
+itoa = "1.0.2"
+safe-regex = "0.2.5"
