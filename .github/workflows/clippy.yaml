@@ -51,6 +51,7 @@ jobs:
             fi
           done < <(printf "%s\n" "${TEMP[@]}" | cut -d'/' -f-3 | sort -u | grep 'src' | tr '\n' '\0')
           find . -type f -name annotations.json -print0 | xargs -0 jq -n '[inputs] | add' > annotations.json
+          jq . anntations.json
       -
         name: Send annotations
         uses: yuzutech/annotations-action@v0.4.0
@@ -58,5 +59,6 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           title: Clippy
           input: ./annotations.json
+          ignore-missing-file: false
 
 
