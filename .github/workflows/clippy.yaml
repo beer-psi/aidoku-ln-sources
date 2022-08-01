@@ -52,11 +52,11 @@ jobs:
                 jq -s -f ${{ github.workspace }}/.github/workflows/annotations.jq annotations.json \
                   | jq --arg v "${i%/}" 'map(.path = $v + "/" + .path)' \
                   | sponge annotations.json
+                jq . annotations.json
               )
             fi
           done < <(printf "%s\n" "${TEMP[@]}" | cut -d'/' -f-3 | sort -u | grep 'src' | tr '\n' '\0')
           find . -type f -name annotations.json -exec jq '[inputs] | add' {} + > annotations.json
-          jq . annotations.json
       -
         name: Send annotations
         uses: yuzutech/annotations-action@v0.4.0
