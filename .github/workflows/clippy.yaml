@@ -59,7 +59,7 @@ jobs:
 
           shopt -s globstar
           jq -s 'add' ./**/annotations.json > annotations.json
-          echo "::set-output LINTS_COUNT=$(jq -s 'length' ./annotations.json)"
+          echo "::set-output name=LINTS_COUNT::$(jq -s 'length' ./annotations.json)"
       -
         name: Send annotations
         uses: yuzutech/annotations-action@v0.4.0
