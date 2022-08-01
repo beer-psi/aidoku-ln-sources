@@ -50,7 +50,7 @@ jobs:
                 cd "$i"
                 cargo clippy --message-format=json > annotations.json
                 jq -s -f ${{ github.workspace }}/.github/workflows/annotations.jq annotations.json \
-                  | jq --arg v "${i%/}" 'map(.path = $v + "/" + .path)'
+                  | jq --arg v "${i%/}" 'map(.path = $v + "/" + .path)' \
                   | sponge annotations.json
               )
             fi
