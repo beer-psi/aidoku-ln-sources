@@ -55,7 +55,7 @@ jobs:
               )
             fi
           done < <(printf "%s\n" "${TEMP[@]}" | cut -d'/' -f-3 | sort -u | grep 'src' | tr '\n' '\0')
-          find . -type f -name annotations.json
+          find . -type f -name annotations.json -exec jq '[inputs] | add' {} +
       -
         name: Send annotations
         uses: yuzutech/annotations-action@v0.4.0
