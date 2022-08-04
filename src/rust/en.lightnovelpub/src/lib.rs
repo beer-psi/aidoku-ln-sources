@@ -1,5 +1,4 @@
 #![no_std]
-#![feature(let_chains)]
 extern crate alloc;
 use alloc::{string::ToString, vec};
 
@@ -7,7 +6,7 @@ use aidoku::{
 	error::{AidokuError, AidokuErrorKind, Result},
 	helpers::{node::NodeHelpers, uri::encode_uri_component},
 	prelude::*,
-	std::{defaults::defaults_get, html::Node, net::Request, String, Vec},
+	std::{defaults::defaults_get, html::Node, net::Request, String, Vec, ObjectRef},
 	Chapter, DeepLink, Filter, FilterType, Listing, Manga, MangaContentRating, MangaPageResult,
 	MangaStatus, MangaViewer, Page,
 };
@@ -17,10 +16,21 @@ use parser::{image_options, parse_manga_list};
 
 mod parser;
 
-#[derive(Default, Deserializable, Debug, PartialEq)]
+#[derive(Default, Debug, PartialEq)]
 struct LNSearchLiveResponse {
 	resultview: Option<String>,
 	success: bool,
+}
+
+impl From<ObjectRef> for LNSearchLiveResponse {
+	fn from(obj: ObjectRef) -> Self {
+		let resultview = obj.get("resultview").as_string().map(|v| v.read()).ok();
+		let success = obj.get("success").as_bool().unwrap_or(false);
+		Self {
+			resultview,
+			success,
+		}
+	}
 }
 
 #[get_manga_list]
@@ -127,7 +137,7 @@ fn get_manga_list(filters: Vec<Filter>, page: i32) -> Result<MangaPageResult> {
 					.header("Referer", "https://www.lightnovelpub.com/search")
 					.body(["inputContent=", &title].concat().as_bytes())
 					.json()?;
-				let json = LNSearchLiveResponse::try_from(data.as_object()?)?;
+				let json = LNSearchLiveResponse::from(data.as_object()?);
 				return if json.success
 						  && let Some(resultview) = json.resultview {
 					let html = Node::new_fragment_with_uri(resultview, "https://www.lightnovelpub.com/search")?;

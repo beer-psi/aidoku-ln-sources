@@ -5,7 +5,7 @@ version = 3
 [[package]]
 name = "aidoku"
 version = "0.2.0"
-source = "git+https://github.com/beerpiss/aidoku-rs?branch=qol-improvements#ad9d89e3d49dda02ad9b3efadfbffd8dced6ef44"
+source = "git+https://github.com/Aidoku/aidoku-rs#83c194ad676297dedb6be0aac03a822c24da90ff"
 dependencies = [
  "aidoku_helpers",
  "aidoku_imports",
@@ -17,7 +17,7 @@ dependencies = [
 [[package]]
 name = "aidoku_helpers"
 version = "0.1.0"
-source = "git+https://github.com/beerpiss/aidoku-rs?branch=qol-improvements#ad9d89e3d49dda02ad9b3efadfbffd8dced6ef44"
+source = "git+https://github.com/Aidoku/aidoku-rs#83c194ad676297dedb6be0aac03a822c24da90ff"
 dependencies = [
  "aidoku_imports",
 ]
@@ -25,17 +25,17 @@ dependencies = [
 [[package]]
 name = "aidoku_imports"
 version = "0.2.0"
-source = "git+https://github.com/beerpiss/aidoku-rs?branch=qol-improvements#ad9d89e3d49dda02ad9b3efadfbffd8dced6ef44"
+source = "git+https://github.com/Aidoku/aidoku-rs#83c194ad676297dedb6be0aac03a822c24da90ff"
 
 [[package]]
 name = "aidoku_macros"
 version = "0.1.0"
-source = "git+https://github.com/beerpiss/aidoku-rs?branch=qol-improvements#ad9d89e3d49dda02ad9b3efadfbffd8dced6ef44"
+source = "git+https://github.com/Aidoku/aidoku-rs#83c194ad676297dedb6be0aac03a822c24da90ff"
 
 [[package]]
 name = "aidoku_proc_macros"
 version = "0.2.0"
-source = "git+https://github.com/beerpiss/aidoku-rs?branch=qol-improvements#ad9d89e3d49dda02ad9b3efadfbffd8dced6ef44"
+source = "git+https://github.com/Aidoku/aidoku-rs#83c194ad676297dedb6be0aac03a822c24da90ff"
 dependencies = [
  "proc-macro2",
  "quote",
